@@ -1,0 +1,424 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+    color: #393939;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Arial', sans-serif;
+    font-weight: 300;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 660px;
+    min-height: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+    list-style-type: none;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+}
+
+.deck .card.unmatched {
+  background: #850505;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    width: 545px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+    color: #ffcd00;
+}
+
+.score-panel .stars li {
+    list-style-type: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+    cursor: pointer;
+}
+
+#restart-text {
+  padding-left: 2px;
+}
+
+#counter {
+  display: inline-block;
+}
+
+#counter-text {
+  color: #058a8c;
+}
+
+#restart-text {
+  color: #058a8c;
+}
+
+.modal {
+    display: none; 
+    position: absolute;
+    z-index: 3; 
+    margin: 0 auto;
+    left: 50px;
+    right: 50px;
+    top: 9em;
+    width: 70%; 
+    background-color: #c0c0c0;
+    
+}
+.modal-content {
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    animation-name: animation1;
+    animation-duration: 0.5s;
+}
+.modal-content h1 {
+  font-size: 1.5em;
+  padding-top: 2em;
+  color: #000;
+  font-weight: bolder;
+}
+
+.modal-content h3 {
+  font-weight: normal;
+  color: #000;
+}
+
+#play-again {
+  background-color: #008cba;
+  color: #fff;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+#play-again:hover {
+  box-shadow: 2px 2px 6px #6f6f6f;
+  background-color: #008cba;
+  cursor: pointer;
+}
+
+#player-rating {
+  padding-left: 15px;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.fa-smile-o {
+    color:#850505;
+    font-size:32px;
+}
+/*
+ Media queries
+ */
+
+@media only screen and (max-width: 780px) {
+  .deck {
+    max-width: 300px;
+    min-height: auto;
+    padding-bottom: 17px;
+  }
+
+  .deck .card {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 17px;
+  }
+
+  .score-panel {
+    max-width: 70%;
+    padding-bottom: 0;
+    display: block;
+    text-align: center;
+    line-height: 1.7em;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 10px 0;
+  }
+}
+
+  /*
+ Animation keyframes 
+ */
+
+  @keyframes animation1 {
+      from {
+          top: -300px;
+          opacity: 0
+      }
+      to {
+          top: 0;
+          opacity: 1
+      }
+  }
+
+  @keyframes animation1 {
+      from {
+          top: -300px;
+          opacity: 0
+      }
+      to {
+          top: 0;
+          opacity: 1
+      }
+  }
+   #win-modal.show {
+       animation-delay: 0.5s;
+   }
+
+   #win-modal.show {
+       animation-name: show;
+       animation-duration: 0.5s;
+       animation-fill-mode: both;
+   }
+  @keyframes show {
+  0% {
+  opacity: 0;
+  transform: scale3d(.3, .3, .3);
+  }
+  50% {
+  opacity: 1;
+  }
+  }
+  @keyframes show {
+  0% {
+  opacity: 0;
+  transform: scale3d(.3, .3, .3);
+  }
+  50% {
+  opacity: 1;
+  }
+  }
+ 
+.deck .card.animation2 {
+backface-visibility: visible;
+animation-name: animation2;
+animation-duration: 1s;
+animation-fill-mode: both;
+}
+@keyframes animation2 {
+0% {
+transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+transition-timing-function: ease-in;
+opacity: 0;
+}
+40% {
+transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+transition-timing-function: ease-in;
+}
+60% {
+transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+opacity: 1;
+}
+80% {
+transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+}
+100% {
+transform: perspective(400px);
+}
+}
+@keyframes animation2 {
+0% {
+transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+transition-timing-function: ease-in;
+opacity: 0;
+}
+40% {
+transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+transition-timing-function: ease-in;
+}
+60% {
+transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+opacity: 1;
+}
+80% {
+transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+}
+100% {
+transform: perspective(400px);
+}
+}
+
+.deck .card.animation3 {
+animation-name: animation3;
+animation-duration: 1s;
+animation-fill-mode: both;
+}
+@keyframes animation3 {
+0%, 100% {
+transform: translate3d(0, 0, 0);
+}
+10%, 30%, 50%, 70%, 90% {
+transform: translate3d(-10px, 0, 0);
+}
+20%, 40%, 60%, 80% {
+transform: translate3d(10px, 0, 0);
+}
+}
+@keyframes animation3 {
+0%, 100% {
+transform: translate3d(0, 0, 0);
+}
+10%, 30%, 50%, 70%, 90% {
+transform: translate3d(-10px, 0, 0);
+}
+20%, 40%, 60%, 80% {
+transform: translate3d(10px, 0, 0);
+}
+}
+
+.deck .card.animation4 {
+animation-name: animation4;
+animation-duration: .75s;
+animation-duration: 1s;
+animation-fill-mode: both;
+}
+@keyframes animation4 {
+0%, 20%, 40%, 60%, 80%, 100% {
+transition-timing-function: ease-in;
+}
+0% {
+opacity: 0;
+transform: scale3d(.3, .3, .3);
+}
+20% {
+transform: scale3d(1.1, 1.1, 1.1);
+}
+40% {
+transform: scale3d(.9, .9, .9);
+}
+60% {
+opacity: 1;
+transform: scale3d(1.03, 1.03, 1.03);
+}
+80% {
+transform: scale3d(.97, .97, .97);
+}
+100% {
+opacity: 1;
+transform: scale3d(1, 1, 1);
+}
+}
+@keyframes animation4 {
+0%, 20%, 40%, 60%, 80%, 100% {
+transition-timing-function: ease-in;
+}
+0% {
+opacity: 0;
+transform: scale3d(.3, .3, .3);
+}
+20% {
+transform: scale3d(1.1, 1.1, 1.1);
+}
+40% {
+transform: scale3d(.9, .9, .9);
+}
+60% {
+opacity: 1;
+transform: scale3d(1.03, 1.03, 1.03);
+}
+80% {
+transform: scale3d(.97, .97, .97);
+}
+100% {
+opacity: 1;
+transform: scale3d(1, 1, 1);
+}
+}
