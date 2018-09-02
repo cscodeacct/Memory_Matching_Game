@@ -13,7 +13,7 @@ It is a memory matching card game where the player is expected to match each car
 
 ## Build
 
- The Game is built with HTMl, CSS, JavaScript and jQuery
+ The Game is built with HTML, CSS, JavaScript and jQuery
 
 ## How to Play
 1. Open this link to launch game [here](https://cscodeacct.github.io/Memory_Matching_Game/)
