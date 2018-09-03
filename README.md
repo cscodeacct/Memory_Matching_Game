@@ -27,4 +27,4 @@ It is a memory matching card game where the player is expected to match each car
 
 ## Link
 
- Click to view:  (https://cscodeacct.github.io/Memory_Matching_Game/)
+ Click to view: https://cscodeacct.github.io/Memory_Matching_Game
